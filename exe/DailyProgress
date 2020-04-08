@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "DailyProgress"
+
+include DailyProgress
+
+path = ARGV[0]
+default_path = "C:/Users/LP-Office/vimwiki/diary/"
+
+DailyProgress.configure(path)
+DailyProgress.progress
