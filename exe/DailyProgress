@@ -8,4 +8,6 @@ path = ARGV[0]
 default_path = "C:/Users/LP-Office/vimwiki/diary/"
 
 DailyProgress.configure(path)
-DailyProgress.progress
+content = DailyProgress.progress
+puts content
+to_clipboard(content)
