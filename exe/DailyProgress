@@ -5,7 +5,7 @@ require "DailyProgress"
 include DailyProgress
 
 path = ARGV[0]
-default_path = "C:/Users/LP-Office/vimwiki/diary/"
+default_path = "/home/lovepreet/vimwiki/diary/"
 
 DailyProgress.configure(path)
 content = DailyProgress.progress

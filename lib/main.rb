@@ -1,8 +1,8 @@
 require 'DailyProgress'
 
 include DailyProgress
-path = "C:/Users/LP-Office/vimwiki/diary/"
+path = "/home/lovepreet/vimwiki/diary/"
 
 DailyProgress.configure(path)
-DailyProgress.progress
+puts DailyProgress.progress
 
