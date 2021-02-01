@@ -4,15 +4,16 @@ Simple ruby gem to convert my vimwiki diary entry to daily progress email.
 
 ## Dependency
 
-Vimwiki should be installed and generate the diary entry in the following format:
+1. `xclip`  - Xclip should be installed for Linux systems as it is used to copy over the final content over 
+   to the clipboard.
+   
+2. Vimwiki should be installed and generate the diary entry in the following format:
 
 ```text
 1. [] First Item
 2. [] Second Item
 3. [] Third Item
 ```
-
-The gem requires the vimwiki location to be configured.
 
 ## Installation
 
@@ -33,10 +34,16 @@ Or install it yourself as:
 ## Usage
 
 
-Call the Gem executable with the path argument
+1. Create your Vimwiki entry for today.
+2. Call the executable. By default it looks for the vimwiki at the path `$HOME/vimwiki/diary`
+   
+```sh
+lovepreet@home:~$ DailyProgress
+```
 
-    $ ruby DailyProgress /path/to/vimwiki
+If you have it somewhere else, add the file path as an argument to the executable. The path can be relative.
 
+     
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
