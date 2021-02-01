@@ -8,8 +8,13 @@ module DailyProgress
 
   def configure(path)
     @@path = path
-
+    if today_file_exists?
+      puts "Configuration Successful"
+    else
+      abort("Today's vimwiki entry not created yet! Please create it before running DailyProgress...")
+    end
   end
+
   def progress
     time_now = Time.new
     # Threshold time currently 7 PM
@@ -19,8 +24,7 @@ module DailyProgress
     else
       content = evening_progress(self.content)
     end
-    puts "Content to clipboard"
-    to_clipboard(content)
+    content
   end
 
   def list_files
@@ -29,10 +33,10 @@ module DailyProgress
 
   def today_filename
     time = Time.new
-    @@path + time.strftime("%Y-%m-%d.wiki")
+    "#{@@path}#{time.strftime("%Y-%m-%d.wiki")}"
   end
 
-  def today_file_exists
+  def today_file_exists?
     File.file?(self.today_filename)
   end
 
