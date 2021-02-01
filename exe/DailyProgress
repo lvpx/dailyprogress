@@ -1,13 +1,11 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require "DailyProgress"
-
+require_relative '../lib/daily_progress'
 include DailyProgress
 
-path = ARGV[0]
-default_path = "/home/lovepreet/vimwiki/diary/"
+path = ARGV[0].nil? ? "#{Dir.home}/vimwiki/diary/" : ARGV[0].nil?
 
 DailyProgress.configure(path)
 content = DailyProgress.progress
-puts content
 to_clipboard(content)

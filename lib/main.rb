@@ -1,4 +1,4 @@
-require 'DailyProgress'
+require 'daily_progress'
 
 include DailyProgress
 path = "/home/lovepreet/vimwiki/diary/"

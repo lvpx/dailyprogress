@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "DailyProgress"
+require "daily_progress"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
