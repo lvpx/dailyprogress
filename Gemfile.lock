@@ -29,7 +29,7 @@ PLATFORMS
 DEPENDENCIES
   DailyProgress!
   bundler (~> 1.17)
-  rake (>= 12.3.3)
+  rake (~> 13.0)
   rspec (~> 3.0)
 
 BUNDLED WITH
