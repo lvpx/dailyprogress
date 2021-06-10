@@ -19,4 +19,9 @@ module OS
     RUBY_ENGINE == 'jruby'
   end
 
+  def OS.wsl?
+    version = File.read(WSL_VERSION_PATH)
+    OS.linux? and (/microsoft|wsl/ =~ version.downcase) != nil
+  end
+
 end

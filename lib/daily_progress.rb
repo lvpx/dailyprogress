@@ -61,8 +61,10 @@ module DailyProgress
   def to_clipboard(content)
     if OS.windows?
       IO.popen('clip', 'w') { |f| f << content.to_s }
+    elsif OS.wsl?
+      puts "Clipboard not implemented for WSL."
     else OS.linux?
-         IO.popen('xclip -selection clipboard', 'r+') { |f| f.puts content.to_s }
+      IO.popen('xclip -selection clipboard', 'r+') { |f| f.puts content.to_s }
     end
   end
 end
