@@ -59,13 +59,16 @@ module DailyProgress
   end
 
   def to_clipboard(content)
+    success_msg = "Content copied to clipboard successfully!"
     if OS.windows?
       IO.popen('clip', 'w') { |f| f << content.to_s }
+      puts success_msg
     elsif OS.wsl?
       puts "Clipboard not implemented for WSL."
       puts content
     else OS.linux?
       IO.popen('xclip -selection clipboard', 'r+') { |f| f.puts content.to_s }
+      puts success_msg
     end
   end
 end

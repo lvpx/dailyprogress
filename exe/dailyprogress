@@ -5,7 +5,7 @@ require_relative '../lib/daily_progress'
 include DailyProgress
 
 path = ARGV[0].nil? ? "#{Dir.home}/vimwiki/diary/" : ARGV[0].nil?
-
+puts "Configured path: #{path}"
 DailyProgress.configure(path)
 content = DailyProgress.progress
 to_clipboard(content)
