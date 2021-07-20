@@ -8,4 +8,5 @@ path = ARGV[0].nil? ? "#{Dir.home}/vimwiki/diary/" : ARGV[0].nil?
 puts "Configured path: #{path}"
 DailyProgress.configure(path)
 content = DailyProgress.progress
+puts content
 to_clipboard(content)

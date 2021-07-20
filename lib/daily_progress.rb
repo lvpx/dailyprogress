@@ -50,12 +50,14 @@ module DailyProgress
     content.gsub!('[X]', '')
     content.gsub!('[-]', '')
     content.gsub!('[ ]', '')
+    content
   end
 
   def evening_progress(content)
     content.gsub!('[X]', '[Completed]')
     content.gsub!('[-]', '[On Hold]')
     content.gsub!('[ ]', '[In Progress]')
+    content
   end
 
   def to_clipboard(content)
