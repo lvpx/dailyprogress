@@ -64,12 +64,13 @@ module DailyProgress
     success_msg = "Content copied to clipboard successfully!"
     if OS.windows?
       IO.popen('clip', 'w') { |f| f << content.to_s }
-      puts success_msg
+      puts success_msg if $?.exitstatus.to_i == 0
     elsif OS.wsl?
-      IO.popen('clip.exe') { |f| f << content.to_s }
+      IO.popen('clip.exe', 'w') { |f| f << content.to_s }
+      puts success_msg if $?.exitstatus.to_i == 0
     else OS.linux?
       IO.popen('xclip -selection clipboard', 'r+') { |f| f.puts content.to_s }
-      puts success_msg
+      puts success_msg if $?.exitstatus.to_i == 0
     end
   end
 end
