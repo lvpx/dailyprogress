@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["lovepreetkaul23@gmail.com"]
 
   spec.summary       = %q{Simple Project to create my daily progress emails from Vimwiki}
-  spec.homepage      = "https://www.lovepreet.xyz"
+  spec.homepage      = "https://deftcode.in/"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

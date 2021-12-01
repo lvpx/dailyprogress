@@ -38,11 +38,14 @@ Or install it yourself as:
 2. Call the executable. By default it looks for the vimwiki at the path `$HOME/vimwiki/diary`
    
 ```sh
-lovepreet@home:~$ DailyProgress
+lovepreet@home:~$ dailyProgress
 ```
 
 If you have it somewhere else, add the file path as an argument to the executable. The path can be relative.
 
+```sh
+lovepreet@home:~$ dailyProgress /path/to/vimwiki/diary
+```
      
 ## Development
 

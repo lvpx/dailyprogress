@@ -50,21 +50,26 @@ module DailyProgress
     content.gsub!('[X]', '')
     content.gsub!('[-]', '')
     content.gsub!('[ ]', '')
+    content
   end
 
   def evening_progress(content)
     content.gsub!('[X]', '[Completed]')
     content.gsub!('[-]', '[On Hold]')
     content.gsub!('[ ]', '[In Progress]')
+    content
   end
 
   def to_clipboard(content)
+    success_msg = "Content copied to clipboard successfully!"
     if OS.windows?
       IO.popen('clip', 'w') { |f| f << content.to_s }
+      puts success_msg
     elsif OS.wsl?
       IO.popen('clip.exe') { |f| f << content.to_s }
     else OS.linux?
       IO.popen('xclip -selection clipboard', 'r+') { |f| f.puts content.to_s }
+      puts success_msg
     end
   end
 end
