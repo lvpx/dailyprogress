@@ -40,10 +40,7 @@ module DailyProgress
 
   def content
     filename = today_filename
-    file = File.open(filename)
-    file_data = file.read
-    file.close
-    file_data
+    File.open(filename).read
   end
 
   def morning_progress(content)
@@ -68,9 +65,12 @@ module DailyProgress
     elsif OS.wsl?
       IO.popen('clip.exe', 'w') { |f| f << content.to_s }
       puts success_msg if $?.exitstatus.to_i == 0
-    else OS.linux?
+    elsif OS.linux?
       IO.popen('xclip -selection clipboard', 'r+') { |f| f.puts content.to_s }
       puts success_msg if $?.exitstatus.to_i == 0
+    else
+      puts "Clipboard not implemented for this OS."
+      Puts "Please copy from stdout."
     end
   end
 end
